@@ -35,3 +35,7 @@
 	insteadOf = "https://github.com/"
 [push]
 	autoSetupRemote = true
+[alias]
+	s = status -s
+	c = commit -m
+	a* = add *

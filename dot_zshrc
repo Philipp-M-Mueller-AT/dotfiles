@@ -81,6 +81,9 @@ plugins=(
     python
     git-flow
     you-should-use
+    docker           # Docker command completion and aliases
+    kubectl          # Kubernetes command completion and aliases
+    dotenv           # Loads .env files automatically
 )
 
 source $ZSH/oh-my-zsh.sh
