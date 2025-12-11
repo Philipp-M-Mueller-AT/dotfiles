@@ -1,14 +1,91 @@
-# ~/.config/starship.toml
+format = """
+[ ](bg: inverted fg:#712bc2)\
+$hostname\
+[](bg:#8c6dd3 fg:#712bc2)\
+$directory\
+[](fg:#8c6dd3 bg:#414bd3)\
+$git_branch\
+$git_status\
+[](fg:#414bd3 bg:#86BBD8)\
+$python\
+$rust\
+[](fg:#86BBD8 bg:#81a1c1)\
+$kubernetes\
+$docker_context\
+[](fg:#81a1c1 bg:#5e81ac)\
+$character\
+$status\
+$time\
+[ ](fg:#5e81ac)\
+"""
 
-command_timeout = 10000
+# Disable the blank line at the start of the prompt
+add_newline = false
 
-[status]
+# You can also replace your username with a neat symbol like  to save some space
+[username]
+show_always = true
+style_user = "bg:#712bc2 bold"
+style_root = "bg:#712bc2 bold"
+format = '[$user]($style)'
+
+[hostname]
+style = "bg:#712bc2 bold"
+format = '[$hostname ]($style)'
+ssh_only = false
 disabled = false
 
-[character]
-format = "🍪 $symbol "
-success_symbol = "[➜](bold green)"
-error_symbol = "[✗](bold red)"
+[directory]
+style = "bg:#8c6dd3 bold"
+format = "[ $path ]($style)"
+truncation_length = 0
+truncation_symbol = ""
 
-[container]
+[docker_context]
+symbol = "🐳 "
+style = "bg:#81a1c1 fg:#2e3440 bold"
+format = '[ $symbol $context ]($style) $path'
+
+[kubernetes]
+symbol = "☸️ "
+style = "bg:#81a1c1 fg:#2e3440 bold"
+format = '[ $symbol $context ]($style)'
 disabled = true
+
+[git_branch]
+symbol = ""
+style = "bg:#414bd3 bold fg:#f0d58c"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "bg:#414bd3 bold fg:#ffbe33"
+format = '[$all_status$ahead_behind ]($style)'
+
+[python]
+symbol = "🐍"
+style = "bg:#88c0d0 fg:#2e3440 bold"
+format = '[ $symbol ($version) ]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:#88c0d0 fg:#2e3440 bold"
+format = '[ $symbol ($version) ]($style)'
+
+[rust]
+symbol = ""
+style = "bg:#88c0d0 fg:#2e3440 bold"
+format = '[ $symbol ($version) ]($style)'
+
+[time]
+disabled = true
+time_format = "%R" # Hour:Minute Format
+style = "bg:#5e81ac bold"
+# format = '[ ♥ $time ]($style)'
+format = '[$time ]($style)'
+
+[character]
+disabled = false
+success_symbol = "[](bg:#5e81ac)"
+error_symbol = "[ ✖ ](bg:#5e81ac)"
+# format = '[ ♥ $time ]($style)'
+format = "$symbol"
